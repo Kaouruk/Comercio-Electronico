@@ -1,15 +1,18 @@
 #include "compra.h"
 
-Compra::Compra() : Registro()
+Compra::Compra(string codigo, string cliente, string producto,
+               int cantidad, double precio)
+    : Registro(codigo)
 {
-    cliente = "";
-    producto = "";
-    cantidad = 0;
-    precio = 0.0;
+    this->cliente = cliente;
+    this->producto = producto;
+    this->cantidad = cantidad;
+    this->precio = precio;
 }
 
 Compra::~Compra()
 {
+
 }
 
 string Compra::getCliente() const
@@ -61,4 +64,14 @@ void Compra::setPrecio(double precio)
 double Compra::calcularTotal() const
 {
     return cantidad * precio;
+}
+
+string Compra::mostrarInformacion() const
+{
+    return "Codigo: " + getCodigo() +
+           "\nCliente: " + cliente +
+           "\nProducto: " + producto +
+           "\nCantidad: " + to_string(cantidad) +
+           "\nPrecio: " + to_string(precio) +
+           "\nTotal: " + to_string(calcularTotal());
 }

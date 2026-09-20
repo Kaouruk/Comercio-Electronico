@@ -1,14 +1,16 @@
 #include "producto.h"
 
-Producto::Producto() : Registro()
+Producto::Producto(string codigo, string nombre, double precio, int cantidad)
+    : Registro(codigo)
 {
-    nombre = "";
-    precio = 0.0;
-    cantidad = 0;
+    this->nombre = nombre;
+    this->precio = precio;
+    this->cantidad = cantidad;
 }
 
 Producto::~Producto()
 {
+
 }
 
 string Producto::getNombre() const
@@ -45,4 +47,10 @@ void Producto::setCantidad(int cantidad)
     {
         this->cantidad = cantidad;
     }
+}
+
+string Producto::mostrarInformacion() const
+{
+    return "Codigo: " + getCodigo() + "\nProducto: " + nombre +
+           "\nPrecio: " + to_string(precio) + "\nCantidad: " + to_string(cantidad);
 }

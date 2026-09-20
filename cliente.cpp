@@ -1,15 +1,15 @@
 #include "cliente.h"
 
-Cliente::Cliente() : Registro()
+Cliente::Cliente(string codigo, string nombre, string correo)
+    : Registro(codigo)
 {
-    nombre = "";
-    correo = "";
-
-
+    this->nombre = nombre;
+    this->correo = correo;
 }
 
 Cliente::~Cliente()
 {
+
 }
 
 string Cliente::getNombre() const
@@ -30,4 +30,9 @@ string Cliente::getCorreo() const
 void Cliente::setCorreo(string correo)
 {
     this->correo = correo;
+}
+
+string Cliente::mostrarInformacion() const
+{
+    return "Codigo: " + getCodigo() + "\nNombre: " + nombre + "\nCorreo: " + correo;
 }

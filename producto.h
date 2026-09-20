@@ -6,7 +6,9 @@
 class Producto : public Registro
 {
 public:
-    Producto();
+
+    Producto(string = "", string = "", double = 0.0, int = 0);
+
     ~Producto();
 
     string getNombre() const;
@@ -18,7 +20,10 @@ public:
     int getCantidad() const;
     void setCantidad(int);
 
+    string mostrarInformacion() const override;
+
 private:
+
     string nombre;
     double precio;
     int cantidad;

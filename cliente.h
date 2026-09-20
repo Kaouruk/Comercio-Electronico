@@ -6,7 +6,9 @@
 class Cliente : public Registro
 {
 public:
-    Cliente();
+
+    Cliente(string = "", string = "", string = "");
+
     ~Cliente();
 
     string getNombre() const;
@@ -15,7 +17,10 @@ public:
     string getCorreo() const;
     void setCorreo(string);
 
+    string mostrarInformacion() const override;
+
 private:
+
     string nombre;
     string correo;
 };

@@ -1,12 +1,13 @@
 #include "registro.h"
 
-Registro::Registro()
+Registro::Registro(string codigo)
 {
-    codigo = "";
+    this->codigo = codigo;
 }
 
 Registro::~Registro()
 {
+
 }
 
 string Registro::getCodigo() const

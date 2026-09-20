@@ -6,7 +6,9 @@
 class Compra : public Registro
 {
 public:
-    Compra();
+
+    Compra(string = "", string = "", string = "", int = 0, double = 0.0);
+
     ~Compra();
 
     string getCliente() const;
@@ -23,7 +25,10 @@ public:
 
     double calcularTotal() const;
 
+    string mostrarInformacion() const override;
+
 private:
+
     string cliente;
     string producto;
     int cantidad;
