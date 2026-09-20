@@ -1,6 +1,5 @@
 #ifndef CLIENTE_H
 #define CLIENTE_H
-
 #include "registro.h"
 
 class Cliente : public Registro
@@ -8,7 +7,6 @@ class Cliente : public Registro
 public:
 
     Cliente(string = "", string = "", string = "");
-
     ~Cliente();
 
     string getNombre() const;
@@ -17,7 +15,7 @@ public:
     string getCorreo() const;
     void setCorreo(string);
 
-    string mostrarInformacion() const;
+    QString mostrarInformacion() const;
 
 private:
 

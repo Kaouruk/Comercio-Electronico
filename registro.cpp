@@ -20,7 +20,11 @@ void Registro::setCodigo(string codigo)
     this->codigo = codigo;
 }
 
-string Registro::mostrarInformacion() const
+QString Registro::mostrarInformacion() const
 {
-    return "Codigo: " + codigo;
+    QString datos;
+
+    datos = "Codigo: " + QString::fromStdString(codigo);
+
+    return datos;
 }

@@ -1,7 +1,7 @@
 #include "cliente.h"
+#include <QTextStream>
 
-Cliente::Cliente(string codigo, string nombre, string correo)
-    : Registro(codigo)
+Cliente::Cliente(string codigo, string nombre, string correo):Registro(codigo)
 {
     this->nombre = nombre;
     this->correo = correo;
@@ -32,9 +32,15 @@ void Cliente::setCorreo(string correo)
     this->correo = correo;
 }
 
-string Cliente::mostrarInformacion() const
+QString Cliente::mostrarInformacion() const
 {
-    return "Codigo: " + getCodigo() +
-           "\nNombre: " + nombre +
-           "\nCorreo: " + correo;
+    QString datos;
+
+    QTextStream(&datos)
+        << "Codigo: " << QString::fromStdString(getCodigo())
+        << "\nNombre: " << QString::fromStdString(nombre)
+        << "\nCorreo: " << QString::fromStdString(correo)
+        << Qt::endl;
+
+    return datos;
 }

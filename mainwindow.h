@@ -4,9 +4,14 @@
 #include <vector>
 #include <list>
 #include <queue>
-#include <QList>
 #include <QString>
 #include <QMainWindow>
+
+#include "cliente.h"
+#include "producto.h"
+#include "compra.h"
+
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,13 +29,14 @@ public:
 
 private slots:
 
-
     void on_buttonMostrarListado_clicked();
 
 private:
     Ui::MainWindow *ui;
-    std::queue<QString> compras;
-    std::list<QString> productos;
-    std::vector<QString> clientes;
+
+    vector<Cliente> clientes;
+    list<Producto> productos;
+    queue<Compra> compras;
 };
+
 #endif // MAINWINDOW_H

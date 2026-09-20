@@ -1,13 +1,12 @@
 #ifndef COMPRA_H
 #define COMPRA_H
-
 #include "registro.h"
 
 class Compra : public Registro
 {
 public:
 
-    Compra(string = "", string = "", string = "", int = 0, double = 0.0);
+    Compra(string = "", string = "", string = "",int = 0, double = 0.0);
 
     ~Compra();
 
@@ -25,7 +24,7 @@ public:
 
     double calcularTotal() const;
 
-    string mostrarInformacion() const override;
+    QString mostrarInformacion() const;
 
 private:
 

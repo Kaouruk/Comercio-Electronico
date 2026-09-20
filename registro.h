@@ -1,7 +1,7 @@
 #ifndef REGISTRO_H
 #define REGISTRO_H
-
 #include <string>
+#include <QString>
 
 using namespace std;
 
@@ -16,7 +16,7 @@ public:
     string getCodigo() const;
     void setCodigo(string);
 
-    virtual string mostrarInformacion() const;
+    virtual QString mostrarInformacion() const;
 
 private:
 

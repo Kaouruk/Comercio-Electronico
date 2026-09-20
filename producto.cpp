@@ -1,7 +1,7 @@
 #include "producto.h"
+#include <QTextStream>
 
-Producto::Producto(string codigo, string nombre, double precio, int cantidad)
-    : Registro(codigo)
+Producto::Producto(string codigo, string nombre, double precio, int cantidad):Registro(codigo)
 {
     this->nombre = nombre;
     this->precio = precio;
@@ -49,8 +49,16 @@ void Producto::setCantidad(int cantidad)
     }
 }
 
-string Producto::mostrarInformacion() const
+QString Producto::mostrarInformacion() const
 {
-    return "Codigo: " + getCodigo() + "\nProducto: " + nombre +
-           "\nPrecio: " + to_string(precio) + "\nCantidad: " + to_string(cantidad);
+    QString datos;
+
+    QTextStream(&datos)
+        << "Codigo: " << QString::fromStdString(getCodigo())
+        << "\nProducto: " << QString::fromStdString(nombre)
+        << "\nPrecio: " << precio
+        << "\nCantidad: " << cantidad
+        << Qt::endl;
+
+    return datos;
 }

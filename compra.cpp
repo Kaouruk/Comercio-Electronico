@@ -1,7 +1,7 @@
 #include "compra.h"
+#include <QTextStream>
 
-Compra::Compra(string codigo, string cliente, string producto,
-               int cantidad, double precio)
+Compra::Compra(string codigo, string cliente, string producto,int cantidad, double precio)
     : Registro(codigo)
 {
     this->cliente = cliente;
@@ -66,12 +66,18 @@ double Compra::calcularTotal() const
     return cantidad * precio;
 }
 
-string Compra::mostrarInformacion() const
+QString Compra::mostrarInformacion() const
 {
-    return "Codigo: " + getCodigo() +
-           "\nCliente: " + cliente +
-           "\nProducto: " + producto +
-           "\nCantidad: " + to_string(cantidad) +
-           "\nPrecio: " + to_string(precio) +
-           "\nTotal: " + to_string(calcularTotal());
+    QString datos;
+
+    QTextStream(&datos)
+        << "Codigo: " << QString::fromStdString(getCodigo())
+        << "\nCodigo cliente: " << QString::fromStdString(cliente)
+        << "\nProducto: " << QString::fromStdString(producto)
+        << "\nCantidad: " << cantidad
+        << "\nPrecio: " << precio
+        << "\nTotal: " << calcularTotal()
+        << Qt::endl;
+
+    return datos;
 }

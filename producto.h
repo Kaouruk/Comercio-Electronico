@@ -1,6 +1,5 @@
 #ifndef PRODUCTO_H
 #define PRODUCTO_H
-
 #include "registro.h"
 
 class Producto : public Registro
@@ -20,7 +19,7 @@ public:
     int getCantidad() const;
     void setCantidad(int);
 
-    string mostrarInformacion() const override;
+    QString mostrarInformacion() const;
 
 private:
 
