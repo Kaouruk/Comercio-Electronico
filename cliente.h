@@ -17,7 +17,7 @@ public:
     string getCorreo() const;
     void setCorreo(string);
 
-    string mostrarInformacion() const override;
+    string mostrarInformacion() const;
 
 private:
 

@@ -19,3 +19,8 @@ void Registro::setCodigo(string codigo)
 {
     this->codigo = codigo;
 }
+
+string Registro::mostrarInformacion() const
+{
+    return "Codigo: " + codigo;
+}

@@ -16,7 +16,7 @@ public:
     string getCodigo() const;
     void setCodigo(string);
 
-    virtual string mostrarInformacion() const = 0;
+    virtual string mostrarInformacion() const;
 
 private:
 

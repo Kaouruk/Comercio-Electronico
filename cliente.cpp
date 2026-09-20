@@ -34,5 +34,7 @@ void Cliente::setCorreo(string correo)
 
 string Cliente::mostrarInformacion() const
 {
-    return "Codigo: " + getCodigo() + "\nNombre: " + nombre + "\nCorreo: " + correo;
+    return "Codigo: " + getCodigo() +
+           "\nNombre: " + nombre +
+           "\nCorreo: " + correo;
 }
