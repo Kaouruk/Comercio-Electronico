@@ -32,6 +32,7 @@ public:
     QLCDNumber *lcdNumber;
     QPushButton *buttonMostrarListado;
     QComboBox *inputTipoListado;
+    QTextBrowser *txtListas_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -54,7 +55,7 @@ public:
         txtListas->setGeometry(QRect(40, 200, 181, 201));
         txtListas->setStyleSheet(QString::fromUtf8("background-color:white;\n"
 "color:black;\n"
-"shadow: 2px green;"));
+""));
         lcdNumber = new QLCDNumber(centralwidget);
         lcdNumber->setObjectName("lcdNumber");
         lcdNumber->setGeometry(QRect(600, 110, 101, 21));
@@ -71,6 +72,12 @@ public:
         inputTipoListado->setGeometry(QRect(50, 150, 161, 32));
         inputTipoListado->setStyleSheet(QString::fromUtf8("color:rgb(0, 249, 0);\n"
 "background-color:rgb(61, 85, 76);"));
+        txtListas_2 = new QTextBrowser(centralwidget);
+        txtListas_2->setObjectName("txtListas_2");
+        txtListas_2->setGeometry(QRect(290, 200, 181, 201));
+        txtListas_2->setStyleSheet(QString::fromUtf8("background-color:white;\n"
+"color:black;\n"
+""));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -95,7 +102,7 @@ public:
 "li.unchecked::marker { content: \"\\2610\"; }\n"
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'.AppleSystemUIFont'; font-size:13pt; font-weight:400; font-style:normal;\">\n"
-"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24pt;\"> Welcome Kathia o Katia?</span></p></body></html>", nullptr));
+"<p align=\"center\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:24pt;\"> Welcome Kathia ?</span></p></body></html>", nullptr));
         buttonMostrarListado->setText(QCoreApplication::translate("MainWindow", "Ver Listado", nullptr));
         inputTipoListado->setItemText(0, QCoreApplication::translate("MainWindow", "Clientes", nullptr));
         inputTipoListado->setItemText(1, QCoreApplication::translate("MainWindow", "Productos", nullptr));
