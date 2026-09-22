@@ -6,7 +6,6 @@
 #include <queue>
 #include <QString>
 #include <QMainWindow>
-
 #include "cliente.h"
 #include "producto.h"
 #include "compra.h"
@@ -31,7 +30,14 @@ private slots:
 
     void on_buttonMostrarListado_clicked();
 
+    void on_cbxGestionar_activated(int index);
+
+    void on_btnAgregarCliente_clicked();
+    void on_btnBuscarCliente_clicked();
+    void on_btnModificarCliente_clicked();
+    void on_btnEliminarCliente_clicked();
 private:
+
     Ui::MainWindow *ui;
 
     vector<Cliente> clientes;
