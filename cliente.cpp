@@ -5,11 +5,17 @@ Cliente::Cliente(string codigo, string nombre, string correo):Registro(codigo)
 {
     this->nombre = nombre;
     this->correo = correo;
+    this->codigo = codigo;
 }
 
 Cliente::~Cliente()
 {
 
+}
+
+string Cliente::getClienteCodigo() const
+{
+    return codigo;
 }
 
 string Cliente::getNombre() const

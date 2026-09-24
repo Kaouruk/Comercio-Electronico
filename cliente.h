@@ -9,6 +9,9 @@ public:
     Cliente(string = "", string = "", string = "");
     ~Cliente();
 
+    string getClienteCodigo() const;
+    // void setNombre(string);
+
     string getNombre() const;
     void setNombre(string);
 
@@ -18,7 +21,7 @@ public:
     QString mostrarInformacion() const;
 
 private:
-
+    string codigo;
     string nombre;
     string correo;
 };

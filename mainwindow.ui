@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>538</width>
-    <height>697</height>
+    <width>563</width>
+    <height>752</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(245, 245, 245);</string>
+   <string notr="true">background-color: rgba(250,250,250,0.9);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">
@@ -23,9 +23,9 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>130</x>
+      <x>0</x>
       <y>0</y>
-      <width>321</width>
+      <width>571</width>
       <height>31</height>
      </rect>
     </property>
@@ -35,8 +35,12 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(30,30,30);
+text-align: center</string>
+    </property>
     <property name="text">
-     <string>SISTEMA DE COMERCIALIZACION</string>
+     <string>                                          SISTEMA DE COMERCIALIZACION KATHIA'S CMR</string>
     </property>
    </widget>
    <widget class="QComboBox" name="cbxGestionar">
@@ -49,7 +53,12 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">color:rgb(0, 249, 0);</string>
+     <string notr="true">
+background-color: rgb(233,233,233);
+color:black;
+font-size:24;
+padding:5px;
+</string>
     </property>
     <item>
      <property name="text">
@@ -76,6 +85,10 @@
       <height>20</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color:black;
+background-color:transparent;</string>
+    </property>
     <property name="text">
      <string>Gestionar:</string>
     </property>
@@ -84,7 +97,7 @@
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>460</y>
+      <y>500</y>
       <width>451</width>
       <height>201</height>
      </rect>
@@ -99,9 +112,14 @@ color:black;</string>
      <rect>
       <x>50</x>
       <y>80</y>
-      <width>451</width>
-      <height>301</height>
+      <width>461</width>
+      <height>331</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">padding:5px;
+background-color:rgb(30,30,30);
+</string>
     </property>
     <property name="title">
      <string>Productos</string>
@@ -109,16 +127,19 @@ color:black;</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
-       <width>411</width>
-       <height>151</height>
+       <y>33</y>
+       <width>421</width>
+       <height>191</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_2">
+      <property name="formAlignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="lblCodigoP">
         <property name="text">
@@ -127,7 +148,7 @@ color:black;</string>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="txtCodigoCliente"/>
+       <widget class="QLineEdit" name="txtCodigoClientes"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lblProd">
@@ -161,11 +182,11 @@ color:black;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>190</y>
+       <y>240</y>
        <width>201</width>
        <height>81</height>
       </rect>
@@ -182,6 +203,11 @@ color:black;</string>
           <height>30</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
         <property name="text">
          <string>Eliminar</string>
         </property>
@@ -195,6 +221,11 @@ color:black;</string>
           <height>30</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
         <property name="text">
          <string>Agregar</string>
         </property>
@@ -202,11 +233,11 @@ color:black;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>230</x>
-       <y>190</y>
+       <x>240</x>
+       <y>240</y>
        <width>201</width>
        <height>81</height>
       </rect>
@@ -223,6 +254,11 @@ color:black;</string>
           <height>30</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
         <property name="text">
          <string>Modificar</string>
         </property>
@@ -236,6 +272,11 @@ color:black;</string>
           <height>30</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
         <property name="text">
          <string>Buscar</string>
         </property>
@@ -243,15 +284,81 @@ color:black;</string>
       </item>
      </layout>
     </widget>
+    <widget class="QFontComboBox" name="fontComboBox">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>10</y>
+       <width>151</width>
+       <height>16</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>430</y>
+      <width>451</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QComboBox" name="inputTipoListado">
+       <property name="styleSheet">
+        <string notr="true">
+background-color: rgb(233,233,233);
+color:black;
+font-size:24;
+padding:5px;
+</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>Clientes</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Productos</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ultimas Compras</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="buttonMostrarListado">
+       <property name="styleSheet">
+        <string notr="true">color:black;
+font-size:24;
+background-color: rgb(233,233,233);</string>
+       </property>
+       <property name="text">
+        <string>Ver Listado</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
    <widget class="QGroupBox" name="grpCompras">
     <property name="geometry">
      <rect>
       <x>50</x>
       <y>80</y>
-      <width>451</width>
-      <height>301</height>
+      <width>461</width>
+      <height>331</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">padding:5px;
+background-color:rgb(30,30,30);
+</string>
     </property>
     <property name="title">
      <string>Compras</string>
@@ -259,16 +366,19 @@ color:black;</string>
     <property name="alignment">
      <set>Qt::AlignmentFlag::AlignCenter</set>
     </property>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>10</x>
-       <y>30</y>
+       <x>20</x>
+       <y>31</y>
        <width>421</width>
-       <height>160</height>
+       <height>211</height>
       </rect>
      </property>
      <layout class="QFormLayout" name="formLayout_3">
+      <property name="formAlignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
       <item row="0" column="0">
        <widget class="QLabel" name="lblCodigo_2">
         <property name="text">
@@ -321,11 +431,11 @@ color:black;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>210</y>
+       <y>250</y>
        <width>191</width>
        <height>72</height>
       </rect>
@@ -335,12 +445,17 @@ color:black;</string>
        <number>10</number>
       </property>
       <item>
-       <widget class="QPushButton" name="btnEliminarC_2">
+       <widget class="QPushButton" name="btnEliminarCompra">
         <property name="minimumSize">
          <size>
           <width>130</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
         </property>
         <property name="text">
          <string>Eliminar</string>
@@ -348,12 +463,17 @@ color:black;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnAgregarP_2">
+       <widget class="QPushButton" name="btnAgregarCompra">
         <property name="minimumSize">
          <size>
           <width>130</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
         </property>
         <property name="text">
          <string>Agregar</string>
@@ -362,11 +482,11 @@ color:black;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
-       <x>220</x>
-       <y>210</y>
+       <x>230</x>
+       <y>250</y>
        <width>211</width>
        <height>72</height>
       </rect>
@@ -376,12 +496,17 @@ color:black;</string>
        <number>10</number>
       </property>
       <item>
-       <widget class="QPushButton" name="btnModificarC_2">
+       <widget class="QPushButton" name="btnModificarCompra">
         <property name="minimumSize">
          <size>
           <width>130</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
         </property>
         <property name="text">
          <string>Modificar</string>
@@ -389,12 +514,17 @@ color:black;</string>
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnBuscarP_2">
+       <widget class="QPushButton" name="btnBuscarCompra">
         <property name="minimumSize">
          <size>
           <width>130</width>
           <height>30</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
         </property>
         <property name="text">
          <string>Buscar</string>
@@ -404,49 +534,182 @@ color:black;</string>
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QGroupBox" name="grpClientes">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>390</y>
-      <width>451</width>
-      <height>51</height>
+      <y>80</y>
+      <width>461</width>
+      <height>331</height>
      </rect>
     </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QComboBox" name="inputTipoListado">
-       <property name="styleSheet">
-        <string notr="true">color:rgb(0, 249, 0);</string>
-       </property>
-       <item>
+    <property name="styleSheet">
+     <string notr="true">padding:5px;
+background-color:rgb(30,30,30);
+</string>
+    </property>
+    <property name="title">
+     <string>Clientes</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+    <widget class="QWidget" name="layoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>30</y>
+       <width>421</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <layout class="QFormLayout" name="formLayout_4">
+      <property name="formAlignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
+      </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="rightMargin">
+       <number>7</number>
+      </property>
+      <property name="bottomMargin">
+       <number>12</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="lblCodigo_3">
         <property name="text">
-         <string>Clientes</string>
+         <string>Codigo:</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLineEdit" name="txtCodigoCrearClientes"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLabel" name="lblNombre_3">
         <property name="text">
-         <string>Productos</string>
+         <string>Nombre</string>
         </property>
-       </item>
-       <item>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="txtNombreCliente"/>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="lblCorreo_5">
         <property name="text">
-         <string>Ultimas Compras</string>
+         <string>Correo</string>
         </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="buttonMostrarListado">
-       <property name="styleSheet">
-        <string notr="true">color:green;</string>
-       </property>
-       <property name="text">
-        <string>Ver Listado</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLineEdit" name="txtCorreoCliente"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>240</y>
+       <width>191</width>
+       <height>72</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnEliminarCliente">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
+        <property name="text">
+         <string>Eliminar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAgregarCliente">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
+        <property name="text">
+         <string>Agregar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>240</y>
+       <width>211</width>
+       <height>72</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_8">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <item>
+       <widget class="QPushButton" name="btnModificarCliente">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
+        <property name="text">
+         <string>Modificar</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnBuscarCliente">
+        <property name="minimumSize">
+         <size>
+          <width>130</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">margin:5px;
+background-color:rgb(40,40,40);
+padding:4px;</string>
+        </property>
+        <property name="text">
+         <string>Buscar</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>

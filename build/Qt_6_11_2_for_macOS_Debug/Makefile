@@ -17,7 +17,7 @@ CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefau
 DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13 -Wall -Wextra $(DEFINES)
-INCPATH       = -I../../../comercio_electronico_projecto-final -I. -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -F/Users/franciscomurillo/Qt/6.11.2/macos/lib
+INCPATH       = -I../../../S10-Proyecto -I. -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -F/Users/franciscomurillo/Qt/6.11.2/macos/lib
 QMAKE         = /Users/franciscomurillo/Qt/6.11.2/macos/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = ProyectoFinal1.0.0
-DISTDIR = /Users/franciscomurillo/Documents/ceutec/programacion3/semana10/comercio_electronico_projecto-final/build/Qt_6_11_2_for_macOS_Debug/.tmp/ProyectoFinal1.0.0
+DISTDIR = /Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/build/Qt_6_11_2_for_macOS_Debug/.tmp/ProyectoFinal1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -stdlib=libc++ -headerpad_max_install_names $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13 -Wl,-rpath,@executable_path/../Frameworks -Wl,-rpath,/Users/franciscomurillo/Qt/6.11.2/macos/lib
 LIBS          = $(SUBLIBS) -F/Users/franciscomurillo/Qt/6.11.2/macos/lib -framework QtWidgets -framework QtGui -framework AppKit -framework ImageIO -framework Metal -framework QtCore -framework IOKit -framework DiskArbitration -framework UniformTypeIdentifiers -framework OpenGL   
@@ -284,6 +284,7 @@ DIST          = /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_pr
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/qt_config.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/sdk.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/toolchain.prf \
@@ -331,12 +332,12 @@ TARGET        = ProyectoFinal.app/Contents/MacOS/ProyectoFinal
 EXPORT_QMAKE_MAC_SDK = macosx
 EXPORT_QMAKE_MAC_SDK_VERSION = 26.5
 EXPORT_QMAKE_XCODE_DEVELOPER_PATH = /Applications/Xcode.app/Contents/Developer
-EXPORT__QMAKE_STASH_ = 
+EXPORT__QMAKE_STASH_ = /Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/build/Qt_6_11_2_for_macOS_Debug/.qmake.stash
 EXPORT_VALID_ARCHS = x86_64 arm64
 EXPORT_DEFAULT_ARCHS = arm64
 EXPORT_ARCHS = $(filter $(EXPORT_VALID_ARCHS), $(if $(ARCHS), $(ARCHS), $(if $(EXPORT_DEFAULT_ARCHS), $(EXPORT_DEFAULT_ARCHS), $(EXPORT_VALID_ARCHS))))
 EXPORT_ARCH_ARGS = $(foreach arch, $(if $(EXPORT_ARCHS), $(EXPORT_ARCHS), $(EXPORT_VALID_ARCHS)), -arch $(arch))
-EXPORT__PRO_FILE_ = /Users/franciscomurillo/Documents/ceutec/programacion3/semana10/comercio_electronico_projecto-final/ProyectoFinal.pro
+EXPORT__PRO_FILE_ = /Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/ProyectoFinal.pro
 
 
 include /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/sdk.mk
@@ -566,6 +567,7 @@ Makefile: ../../ProyectoFinal.pro /Users/franciscomurillo/Qt/6.11.2/macos/mkspec
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/qt_config.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang/qmake.conf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/exclusive_builds.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/sdk.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/toolchain.prf \
@@ -819,6 +821,7 @@ Makefile: ../../ProyectoFinal.pro /Users/franciscomurillo/Qt/6.11.2/macos/mkspec
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/qt_config.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang/qmake.conf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/exclusive_builds.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/sdk.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/toolchain.prf:
@@ -888,6 +891,7 @@ clean: compiler_clean
 
 distclean: clean 
 	-$(DEL_FILE) -r ProyectoFinal.app
+	-$(DEL_FILE) .qmake.stash
 	-$(DEL_FILE) Makefile
 
 
@@ -910,9 +914,14 @@ compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: ../../mainwindow.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../cliente.h \
+		../../registro.h \
+		../../producto.h \
+		../../compra.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc
-	/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=201402L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=21 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/comercio_electronico_projecto-final -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/franciscomurillo/Qt/6.11.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
+	/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=201402L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=21 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/franciscomurillo/Qt/6.11.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -938,28 +947,47 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 ####### Compile
 
 cliente.o: ../../cliente.cpp ../../cliente.h \
-		../../registro.h
+		../../registro.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cliente.o ../../cliente.cpp
 
 compra.o: ../../compra.cpp ../../compra.h \
-		../../registro.h
+		../../registro.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compra.o ../../compra.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		../../cliente.h \
+		../../registro.h \
+		../../producto.h \
+		../../compra.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QApplication
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
 
 mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
-		ui_mainwindow.h
+		../../cliente.h \
+		../../registro.h \
+		../../producto.h \
+		../../compra.h \
+		ui_mainwindow.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTextStream \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMessageBox
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 producto.o: ../../producto.cpp ../../producto.h \
-		../../registro.h
+		../../registro.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTextStream
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o producto.o ../../producto.cpp
 
-registro.o: ../../registro.cpp ../../registro.h
+registro.o: ../../registro.cpp ../../registro.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registro.o ../../registro.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

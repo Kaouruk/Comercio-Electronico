@@ -72,10 +72,10 @@ QString Compra::mostrarInformacion() const
 
     QTextStream(&datos)
         << "Codigo: " << QString::fromStdString(getCodigo())
-        << "\nCodigo cliente: " << QString::fromStdString(cliente)
+        << "\nCliente: " << QString::fromStdString(cliente)
         << "\nProducto: " << QString::fromStdString(producto)
         << "\nCantidad: " << cantidad
-        << "\nPrecio: " << precio
+            << "\nPrecio: " << precio << "$"
         << "\nTotal: " << calcularTotal()
         << Qt::endl;
 
