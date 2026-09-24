@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
-#include <QtWidgets/QFontComboBox>
 #include <QtWidgets/QFormLayout>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
@@ -54,7 +53,6 @@ public:
     QVBoxLayout *verticalLayout_6;
     QPushButton *btnModificarProducto;
     QPushButton *btnBuscarProducto;
-    QFontComboBox *fontComboBox;
     QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout;
     QComboBox *inputTipoListado;
@@ -116,7 +114,8 @@ public:
         font.setBold(true);
         label_5->setFont(font);
         label_5->setStyleSheet(QString::fromUtf8("background-color:rgb(30,30,30);\n"
-"text-align: center"));
+"text-align: center;\n"
+"color:white;"));
         cbxGestionar = new QComboBox(centralwidget);
         cbxGestionar->addItem(QString());
         cbxGestionar->addItem(QString());
@@ -144,7 +143,7 @@ public:
         grpProductos->setGeometry(QRect(50, 80, 461, 331));
         grpProductos->setStyleSheet(QString::fromUtf8("padding:5px;\n"
 "background-color:rgb(30,30,30);\n"
-""));
+"color:white;"));
         grpProductos->setAlignment(Qt::AlignmentFlag::AlignCenter);
         layoutWidget = new QWidget(grpProductos);
         layoutWidget->setObjectName("layoutWidget");
@@ -243,9 +242,6 @@ public:
 
         verticalLayout_6->addWidget(btnBuscarProducto);
 
-        fontComboBox = new QFontComboBox(grpProductos);
-        fontComboBox->setObjectName("fontComboBox");
-        fontComboBox->setGeometry(QRect(290, 10, 151, 16));
         layoutWidget3 = new QWidget(centralwidget);
         layoutWidget3->setObjectName("layoutWidget3");
         layoutWidget3->setGeometry(QRect(50, 430, 451, 51));
@@ -279,6 +275,7 @@ public:
         grpCompras->setGeometry(QRect(50, 80, 461, 331));
         grpCompras->setStyleSheet(QString::fromUtf8("padding:5px;\n"
 "background-color:rgb(30,30,30);\n"
+"color:white;\n"
 ""));
         grpCompras->setAlignment(Qt::AlignmentFlag::AlignCenter);
         layoutWidget4 = new QWidget(grpCompras);
@@ -393,6 +390,7 @@ public:
         grpClientes->setGeometry(QRect(50, 80, 461, 331));
         grpClientes->setStyleSheet(QString::fromUtf8("padding:5px;\n"
 "background-color:rgb(30,30,30);\n"
+"color:white;\n"
 ""));
         grpClientes->setAlignment(Qt::AlignmentFlag::AlignCenter);
         layoutWidget_2 = new QWidget(grpClientes);

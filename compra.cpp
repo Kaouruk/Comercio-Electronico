@@ -70,13 +70,19 @@ QString Compra::mostrarInformacion() const
 {
     QString datos;
 
-    QTextStream(&datos)
-        << "Codigo: " << QString::fromStdString(getCodigo())
-        << "\nCliente: " << QString::fromStdString(cliente)
-        << "\nProducto: " << QString::fromStdString(producto)
-        << "\nCantidad: " << cantidad
-            << "\nPrecio: " << precio << "$"
-        << "\nTotal: " << calcularTotal()
+    QString code = QString::fromStdString(getCodigo());
+    QString client = QString::fromStdString(cliente);
+    QString prod = QString::fromStdString(producto);
+
+    QString rowInfo = QString("%1%2%3%4%5").arg(code, 5).arg(client, 25).arg(prod, 25).arg(cantidad, 12).arg(precio, 17);
+
+    QTextStream(&datos)  << "\n" << rowInfo
+        // << "Codigo: " << QString::fromStdString(getCodigo())
+        // << "\nCliente: " << QString::fromStdString(cliente)
+        // << "\nProducto: " << QString::fromStdString(producto)
+        // << "\nCantidad: " << cantidad
+        //     << "\nPrecio: " << precio << "$"
+        // << "\nTotal: " << calcularTotal()
         << Qt::endl;
 
     return datos;

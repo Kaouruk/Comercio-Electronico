@@ -42,10 +42,13 @@ QString Cliente::mostrarInformacion() const
 {
     QString datos;
 
-    QTextStream(&datos)
-        << "Codigo: " << QString::fromStdString(getCodigo())
-        << "\nNombre: " << QString::fromStdString(nombre)
-        << "\nCorreo: " << QString::fromStdString(correo)
+    QString code = QString::fromStdString(getCodigo());
+    QString client = QString::fromStdString(nombre);
+    QString mail = QString::fromStdString(correo);
+
+
+    QString rowInfo = QString("%1%2%3").arg(code, 5).arg(client, 25).arg(mail, 28);
+    QTextStream(&datos) << "\n" << rowInfo
         << Qt::endl;
 
     return datos;

@@ -45,33 +45,63 @@ void MainWindow::on_buttonMostrarListado_clicked()
 
     if(listado == "Clientes")
     {
-        QTextStream(&datos) << listado << "\n\n";
+        QString headerInfo = QString("%1%2%3")
+                                 .arg("Codigo", -5)
+                                 .arg("Cliente", 20)
+                                 .arg("Correo ", 25);
+        QTextStream(&datos)
+            << listado << "\n\n"
+            << headerInfo
+            << "\n_________________________________________________";
 
         for(Cliente &cliente : clientes)
         {
             QTextStream(&datos)
             << cliente.mostrarInformacion()
+            << "_________________________________________________"
             << "\n";
         }
     }
 
     else if(listado == "Productos")
     {
-        QTextStream(&datos) << listado << "\n\n";
+
+        QString headerInfo = QString("%1%2%3%4")
+                                 .arg("Codigo", -5)
+                                 .arg("Producto", 20)
+                                 .arg("Precio $", 25)
+                                 .arg("Cantidad", 20);
+
+        QTextStream(&datos)
+            << listado
+            << "\n\n"
+            << headerInfo  << "\n_________________________________________________";
 
         for(Producto &producto : productos)
         {
             QTextStream(&datos)
             << producto.mostrarInformacion()
+            << "_________________________________________________"
             << "\n";
         }
     }
 
     else if(listado == "Ultimas Compras")
     {
-        QTextStream(&datos) << listado << "\n\n";
+        QString headerInfo = QString("%1%2%3%4%5")
+                                .arg("Codigo", -5)
+                                .arg("Cliente", 20)
+                                .arg("Producto", 25)
+                                .arg("Cantidad", 15)
+                                .arg("Precio", 15);
+
+        QTextStream(&datos)
+            << listado
+            << "\n\n"
+            << headerInfo  << "\n________________________________________________________";
 
         queue<Compra> lista = compras; //copia de la cola compras
+
 
         while(!lista.empty())
         {
@@ -79,6 +109,7 @@ void MainWindow::on_buttonMostrarListado_clicked()
 
             QTextStream(&datos)
                 << compra.mostrarInformacion()
+                << "\n________________________________________________________"
                 << "\n";
 
             lista.pop();
@@ -528,7 +559,10 @@ void MainWindow::on_btnEliminarCompra_clicked()
 }
 
 
-
+//Trabajando en:
+//agregar funcionalidad de validacion de codigo
+//agregar funcionalidad de descargar registros
+//agregar funcionalidad de crear lista de producto existen en stock para cuando se realice una compra
 
 
 

@@ -53,11 +53,12 @@ QString Producto::mostrarInformacion() const
 {
     QString datos;
 
-    QTextStream(&datos)
-        << "Codigo: " << QString::fromStdString(getCodigo())
-        << "\nProducto: " << QString::fromStdString(nombre)
-        << "\nPrecio: " << precio
-        << "\nCantidad: " << cantidad
+    QString code = QString::fromStdString(getCodigo());
+    QString prod = QString::fromStdString(nombre);
+
+
+    QString rowInfo = QString("%1%2%3%4").arg(code, -5).arg(prod, 20).arg(precio, 28).arg(cantidad, 28);
+    QTextStream(&datos) << "\n" << rowInfo
         << Qt::endl;
 
     return datos;

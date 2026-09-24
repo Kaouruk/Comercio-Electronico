@@ -37,7 +37,8 @@
     </property>
     <property name="styleSheet">
      <string notr="true">background-color:rgb(30,30,30);
-text-align: center</string>
+text-align: center;
+color:white;</string>
     </property>
     <property name="text">
      <string>                                          SISTEMA DE COMERCIALIZACION KATHIA'S CMR</string>
@@ -119,7 +120,7 @@ color:black;</string>
     <property name="styleSheet">
      <string notr="true">padding:5px;
 background-color:rgb(30,30,30);
-</string>
+color:white;</string>
     </property>
     <property name="title">
      <string>Productos</string>
@@ -284,16 +285,6 @@ padding:4px;</string>
       </item>
      </layout>
     </widget>
-    <widget class="QFontComboBox" name="fontComboBox">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>10</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -358,6 +349,7 @@ background-color: rgb(233,233,233);</string>
     <property name="styleSheet">
      <string notr="true">padding:5px;
 background-color:rgb(30,30,30);
+color:white;
 </string>
     </property>
     <property name="title">
@@ -546,6 +538,7 @@ padding:4px;</string>
     <property name="styleSheet">
      <string notr="true">padding:5px;
 background-color:rgb(30,30,30);
+color:white;
 </string>
     </property>
     <property name="title">
