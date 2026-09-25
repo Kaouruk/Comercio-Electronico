@@ -2,6 +2,9 @@
 #include "ui_mainwindow.h"
 #include <QTextStream>
 #include <QMessageBox>
+#include "xlsxdocument.h"
+#include <QFileDialog>
+#include <QStandardPaths>
 
 #include "cliente.h"
 #include "producto.h"
@@ -36,7 +39,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_buttonMostrarListado_clicked()
 {
@@ -102,7 +104,6 @@ void MainWindow::on_buttonMostrarListado_clicked()
 
         queue<Compra> lista = compras; //copia de la cola compras
 
-
         while(!lista.empty())
         {
             Compra compra = lista.front();
@@ -113,6 +114,30 @@ void MainWindow::on_buttonMostrarListado_clicked()
                 << "\n";
 
             lista.pop();
+        }
+    }
+    else if(listado == "Prod Existentes"){
+        if(productos.empty()){
+            QMessageBox::warning(this, "Error", "No hay productos!, Antes de realizar una compra, agregue un producto.");
+            return;
+        }
+        QString headerInfo = QString("%1%2%3%4")
+        .arg("Codigo", -5)
+            .arg("Producto", 20)
+            .arg("Precio $", 25)
+            .arg("Cantidad", 20);
+
+        QTextStream(&datos)
+            << listado
+            << "\n\n"
+            << headerInfo  << "\n_________________________________________________";
+
+        for(Producto &producto : productos)
+        {
+            QTextStream(&datos)
+            << producto.mostrarInformacion()
+            << "_________________________________________________"
+            << "\n";
         }
     }
 
@@ -151,6 +176,19 @@ void MainWindow::on_cbxGestionar_activated()
 
 void MainWindow::on_btnAgregarCliente_clicked()
 {
+    string codigo = ui->txtCodigoCrearClientes->text().toStdString();
+    vector<Cliente>::iterator it;
+
+    //Search each object to see if the code already exist.
+    for(it = clientes.begin(); it != clientes.end(); ++it)
+    {
+        if(it->getCodigo() == codigo)
+        {
+            QMessageBox::warning(this, "Error", "Ya existe un cliente con ese ID.");
+            return;
+        }
+    }
+
     if(ui->txtCodigoCrearClientes->text().isEmpty() ||
         ui->txtNombreCliente->text().isEmpty() ||
         ui->txtCorreoCliente->text().isEmpty())
@@ -158,6 +196,7 @@ void MainWindow::on_btnAgregarCliente_clicked()
         QMessageBox::warning(this, "Error", "Complete todos los datos");
         return;
     }
+
 
     Cliente cliente(
         ui->txtCodigoCrearClientes->text().toStdString(),
@@ -174,8 +213,6 @@ void MainWindow::on_btnAgregarCliente_clicked()
     ui->txtCorreoCliente->clear();
 
 }
-
-
 
 void MainWindow::on_btnBuscarCliente_clicked()
 {
@@ -271,12 +308,22 @@ void MainWindow::on_btnEliminarCliente_clicked()
     QMessageBox::warning(this, "Cliente", "Cliente no se ha encontrado");
 }
 
-
-
 //AGREGAR PROPDUCTO
 
 void MainWindow::on_btnAgregarProducto_clicked()
 {
+    string codigo = ui->txtCodigoClientes->text().toStdString();
+
+    list<Producto>::iterator it;
+    //Search each object to see if the code already exist.
+    for(it = productos.begin(); it != productos.end(); ++it)
+    {
+        if(it->getCodigo() == codigo)
+        {
+            QMessageBox::warning(this, "Error", "Ya existe un producto con ese ID.");
+            return;
+        }
+    }
     if(ui->txtCodigoClientes->text().isEmpty() ||
         ui->txtNombreProducto->text().isEmpty() ||
         ui->txtCantidadProducto->text().isEmpty() ||
@@ -303,8 +350,6 @@ void MainWindow::on_btnAgregarProducto_clicked()
     ui->txtCantidadProducto->clear();
 
 }
-
-
 
 void MainWindow::on_btnBuscarProducto_clicked()
 {
@@ -413,19 +458,35 @@ void MainWindow::on_btnEliminarProducto_clicked()
     QMessageBox::warning(this, "Producto", "Producto no se ha encontrado");
 }
 
-
-
 //AGREGAR COMPRA
 
 void MainWindow::on_btnAgregarCompra_clicked()
 {
-    if(ui->txtCodigoCompras->text().isEmpty() ||
-        ui->txtClienteCompras->text().isEmpty() ||
+    if(productos.empty()){
+        QMessageBox::warning(this, "Error", "No hay productos!, Antes de realizar una compra, agregue un producto.");
+        return;
+    }
+    string codigo = ui->txtCodigoCompras->text().toStdString();
+
+    queue<Compra> copia_compra = compras;
+
+    //Search each object to see if the code already exist.
+    while(!copia_compra.empty()){
+        auto& current_item = copia_compra.front();
+        if(current_item.getCodigo() != codigo){
+            QMessageBox::warning(this, "Error", "No existe un producto con ese ID.");
+            return;
+        }
+        copia_compra.pop();
+    }
+
+    if(ui->txtCodigoCompras->text().isEmpty()
+       /* ui->txtClienteCompras->text().isEmpty() ||
         ui->txtProductoCompras->text().isEmpty() ||
         ui->txtPrecioCompras->text().isEmpty() ||
-        ui->txtCantidadCompras->text().isEmpty())
+        ui->txtCantidadCompras->text().isEmpty()*/)
     {
-        QMessageBox::warning(this, "Error", "Complete todos los datos");
+        QMessageBox::warning(this, "Error", "Agregue el ID del producto");
         return;
     }
 
@@ -449,8 +510,6 @@ void MainWindow::on_btnAgregarCompra_clicked()
 
 }
 
-
-
 void MainWindow::on_btnBuscarCompra_clicked()
 {
     if(ui->txtCodigoCompras->text().isEmpty())
@@ -460,7 +519,6 @@ void MainWindow::on_btnBuscarCompra_clicked()
     }
 
     string codigo = ui->txtCodigoCompras->text().toStdString();
-
 
     queue<Compra> copia_compra = compras;
 
@@ -559,18 +617,91 @@ void MainWindow::on_btnEliminarCompra_clicked()
 }
 
 
-//Trabajando en:
-//agregar funcionalidad de validacion de codigo
-//agregar funcionalidad de descargar registros
-//agregar funcionalidad de crear lista de producto existen en stock para cuando se realice una compra
+void MainWindow::on_btnDescargarRegistros_clicked()
+{
+    QString rutaInicial = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation) + "/Reporte.xlsx";
 
+    //ventana para guardar el archivo
+    QString rutaSeleccionada = QFileDialog::getSaveFileName(
+        this,
+        "Guardar Reporte de Excel",
+        rutaInicial,
+        "Archivos de Excel (*.xlsx)"
+        );
 
+    //valida si el usuario guardo el archivo o cancelo
+    if (rutaSeleccionada.isEmpty()) {
+        return;
+    }
 
+    QXlsx::Document xlsx;
 
+    xlsx.renameSheet("Clientes", "Clientes");
 
+    //cabecera del reporte "Clientes"
+    xlsx.write(2, 2, "Reporte Clientes: ");
+    xlsx.write(4, 2, "Codigo");
+    xlsx.write(4, 3, "Cliente");
+    xlsx.write(4, 4, "Correo");
 
+    int rowCliente = 5;
+    for(Cliente &cliente : clientes)
+    {
+        xlsx.write(rowCliente,2,QString::fromStdString(cliente.getCodigo()));
+        xlsx.write(rowCliente,3,QString::fromStdString(cliente.getNombre()));
+        xlsx.write(rowCliente,4,QString::fromStdString(cliente.getCorreo()));
+        rowCliente++;
+    }
 
+    xlsx.addSheet("Productos");
 
+    //cabecera del reporte "Productos"
+    xlsx.write(2, 2, "Reporte Productos: ");
+    xlsx.write(4, 2, "Codigo");
+    xlsx.write(4, 3, "Producto");
+    xlsx.write(4, 4, "Precio");
+    xlsx.write(4, 5, "Cantidad");
 
+    int rowProduct = 5;
+    for(Producto &producto : productos)
+    {
+        xlsx.write(rowProduct,2,QString::fromStdString(producto.getCodigo()));
+        xlsx.write(rowProduct,3,QString::fromStdString(producto.getNombre()));
+        xlsx.write(rowProduct,4,producto.getPrecio());
+        xlsx.write(rowProduct,5,producto.getCantidad());
+        rowProduct++;
+    }
 
+    xlsx.addSheet("Ventas");
+
+    //cabecera del reporte "Ventas"
+    xlsx.write(2, 2, "Reporte Ventas: ");
+    xlsx.write(4, 2, "Codigo");
+    xlsx.write(4, 3, "Cliente");
+    xlsx.write(4, 4, "Producto");
+    xlsx.write(4, 5, "Cantidad");
+    xlsx.write(4, 6, "Precio");
+
+    queue<Compra> lista = compras; //copia de la cola compras
+    int rowCompra = 5;
+    while(!lista.empty())
+    {
+        Compra compra = lista.front();
+
+        xlsx.write(rowProduct,2,QString::fromStdString(compra.getCodigo()));
+        xlsx.write(rowProduct,3,QString::fromStdString(compra.getCliente()));
+        xlsx.write(rowProduct,4,QString::fromStdString(compra.getProducto()));
+        xlsx.write(rowProduct,5,compra.getCantidad());
+        xlsx.write(rowProduct,6,compra.getPrecio());
+        rowCompra++;
+
+        lista.pop();
+    }
+
+    if (xlsx.saveAs(rutaSeleccionada)) {
+        QMessageBox::information(this, "Éxito", "¡El archivo Excel se guardó correctamente!");
+    } else {
+        QMessageBox::critical(this, "Error", "No se pudo guardar el archivo.\nVerifica si está abierto en Excel o si tienes permisos de escritura.");
+    }
+}
 

@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13 -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -stdlib=libc++ -g -std=gnu++1z $(EXPORT_ARCH_ARGS) -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk -mmacosx-version-min=13 -Wall -Wextra $(DEFINES)
-INCPATH       = -I../../../S10-Proyecto -I. -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -F/Users/franciscomurillo/Qt/6.11.2/macos/lib
+INCPATH       = -I../../../S10-Proyecto -I. -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/Headers/header -I../../QXlsx -I../../../S10-Proyecto -I../../QXlsx/header -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/../QXlsx/header/unix-gcc -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/../QXlsx/header/mac -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2/QtGui -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/System/Library/Frameworks/OpenGL.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -F/Users/franciscomurillo/Qt/6.11.2/macos/lib
 QMAKE         = /Users/franciscomurillo/Qt/6.11.2/macos/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -52,18 +52,88 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../../cliente.cpp \
+SOURCES       = ../../QXlsx/source/xlsxabstractooxmlfile.cpp \
+		../../QXlsx/source/xlsxabstractsheet.cpp \
+		../../QXlsx/source/xlsxcell.cpp \
+		../../QXlsx/source/xlsxcellformula.cpp \
+		../../QXlsx/source/xlsxcelllocation.cpp \
+		../../QXlsx/source/xlsxcellrange.cpp \
+		../../QXlsx/source/xlsxcellreference.cpp \
+		../../QXlsx/source/xlsxchart.cpp \
+		../../QXlsx/source/xlsxchartsheet.cpp \
+		../../QXlsx/source/xlsxcolor.cpp \
+		../../QXlsx/source/xlsxconditionalformatting.cpp \
+		../../QXlsx/source/xlsxcontenttypes.cpp \
+		../../QXlsx/source/xlsxdatavalidation.cpp \
+		../../QXlsx/source/xlsxdatetype.cpp \
+		../../QXlsx/source/xlsxdocpropsapp.cpp \
+		../../QXlsx/source/xlsxdocpropscore.cpp \
+		../../QXlsx/source/xlsxdocument.cpp \
+		../../QXlsx/source/xlsxdrawing.cpp \
+		../../QXlsx/source/xlsxdrawinganchor.cpp \
+		../../QXlsx/source/xlsxformat.cpp \
+		../../QXlsx/source/xlsxmediafile.cpp \
+		../../QXlsx/source/xlsxnumformatparser.cpp \
+		../../QXlsx/source/xlsxrelationships.cpp \
+		../../QXlsx/source/xlsxrichstring.cpp \
+		../../QXlsx/source/xlsxsharedstrings.cpp \
+		../../QXlsx/source/xlsxsimpleooxmlfile.cpp \
+		../../QXlsx/source/xlsxstyles.cpp \
+		../../QXlsx/source/xlsxtheme.cpp \
+		../../QXlsx/source/xlsxutility.cpp \
+		../../QXlsx/source/xlsxworkbook.cpp \
+		../../QXlsx/source/xlsxworksheet.cpp \
+		../../QXlsx/source/xlsxzipreader.cpp \
+		../../QXlsx/source/xlsxzipwriter.cpp \
+		../../QXlsx/source/xlsxreadsax.cpp \
+		../../cliente.cpp \
 		../../compra.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
 		../../producto.cpp \
-		../../registro.cpp moc_mainwindow.cpp
-OBJECTS       = cliente.o \
+		../../registro.cpp moc_xlsxdocument.cpp \
+		moc_mainwindow.cpp
+OBJECTS       = xlsxabstractooxmlfile.o \
+		xlsxabstractsheet.o \
+		xlsxcell.o \
+		xlsxcellformula.o \
+		xlsxcelllocation.o \
+		xlsxcellrange.o \
+		xlsxcellreference.o \
+		xlsxchart.o \
+		xlsxchartsheet.o \
+		xlsxcolor.o \
+		xlsxconditionalformatting.o \
+		xlsxcontenttypes.o \
+		xlsxdatavalidation.o \
+		xlsxdatetype.o \
+		xlsxdocpropsapp.o \
+		xlsxdocpropscore.o \
+		xlsxdocument.o \
+		xlsxdrawing.o \
+		xlsxdrawinganchor.o \
+		xlsxformat.o \
+		xlsxmediafile.o \
+		xlsxnumformatparser.o \
+		xlsxrelationships.o \
+		xlsxrichstring.o \
+		xlsxsharedstrings.o \
+		xlsxsimpleooxmlfile.o \
+		xlsxstyles.o \
+		xlsxtheme.o \
+		xlsxutility.o \
+		xlsxworkbook.o \
+		xlsxworksheet.o \
+		xlsxzipreader.o \
+		xlsxzipwriter.o \
+		xlsxreadsax.o \
+		cliente.o \
 		compra.o \
 		main.o \
 		mainwindow.o \
 		producto.o \
 		registro.o \
+		moc_xlsxdocument.o \
 		moc_mainwindow.o
 DIST          = /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_pre.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/device_config.prf \
@@ -291,6 +361,7 @@ DIST          = /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_pr
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/toolchain.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_pre.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_pre.prf \
+		../../../../QXlsx/QXlsx.pri \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/resolve_config.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_post.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_post.prf \
@@ -314,11 +385,93 @@ DIST          = /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/spec_pr
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/exceptions.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/yacc.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/lex.prf \
-		../../../../ProyectoFinal.pro ../../cliente.h \
+		../../../../ProyectoFinal.pro ../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxcellformula_p.h \
+		../../QXlsx/header/xlsxcelllocation.h \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxcell_p.h \
+		../../QXlsx/header/xlsxchart.h \
+		../../QXlsx/header/xlsxchartsheet.h \
+		../../QXlsx/header/xlsxchartsheet_p.h \
+		../../QXlsx/header/xlsxchart_p.h \
+		../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxconditionalformatting.h \
+		../../QXlsx/header/xlsxconditionalformatting_p.h \
+		../../QXlsx/header/xlsxcontenttypes_p.h \
+		../../QXlsx/header/xlsxdatavalidation.h \
+		../../QXlsx/header/xlsxdatavalidation_p.h \
+		../../QXlsx/header/xlsxdatetype.h \
+		../../QXlsx/header/xlsxdocpropsapp_p.h \
+		../../QXlsx/header/xlsxdocpropscore_p.h \
+		../../QXlsx/header/xlsxdocument.h \
+		../../QXlsx/header/xlsxdocument_p.h \
+		../../QXlsx/header/xlsxdrawinganchor_p.h \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxformat_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		../../QXlsx/header/xlsxmediafile_p.h \
+		../../QXlsx/header/xlsxnumformatparser_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		../../QXlsx/header/xlsxrichstring.h \
+		../../QXlsx/header/xlsxrichstring_p.h \
+		../../QXlsx/header/xlsxsharedstrings_p.h \
+		../../QXlsx/header/xlsxsimpleooxmlfile_p.h \
+		../../QXlsx/header/xlsxstyles_p.h \
+		../../QXlsx/header/xlsxtheme_p.h \
+		../../QXlsx/header/xlsxutility_p.h \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxworkbook_p.h \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxworksheet_p.h \
+		../../QXlsx/header/xlsxzipreader_p.h \
+		../../QXlsx/header/xlsxzipwriter_p.h \
+		../../QXlsx/header/xlsxreadsax.h \
+		../../cliente.h \
 		../../compra.h \
 		../../mainwindow.h \
 		../../producto.h \
-		../../registro.h ../../cliente.cpp \
+		../../registro.h ../../QXlsx/source/xlsxabstractooxmlfile.cpp \
+		../../QXlsx/source/xlsxabstractsheet.cpp \
+		../../QXlsx/source/xlsxcell.cpp \
+		../../QXlsx/source/xlsxcellformula.cpp \
+		../../QXlsx/source/xlsxcelllocation.cpp \
+		../../QXlsx/source/xlsxcellrange.cpp \
+		../../QXlsx/source/xlsxcellreference.cpp \
+		../../QXlsx/source/xlsxchart.cpp \
+		../../QXlsx/source/xlsxchartsheet.cpp \
+		../../QXlsx/source/xlsxcolor.cpp \
+		../../QXlsx/source/xlsxconditionalformatting.cpp \
+		../../QXlsx/source/xlsxcontenttypes.cpp \
+		../../QXlsx/source/xlsxdatavalidation.cpp \
+		../../QXlsx/source/xlsxdatetype.cpp \
+		../../QXlsx/source/xlsxdocpropsapp.cpp \
+		../../QXlsx/source/xlsxdocpropscore.cpp \
+		../../QXlsx/source/xlsxdocument.cpp \
+		../../QXlsx/source/xlsxdrawing.cpp \
+		../../QXlsx/source/xlsxdrawinganchor.cpp \
+		../../QXlsx/source/xlsxformat.cpp \
+		../../QXlsx/source/xlsxmediafile.cpp \
+		../../QXlsx/source/xlsxnumformatparser.cpp \
+		../../QXlsx/source/xlsxrelationships.cpp \
+		../../QXlsx/source/xlsxrichstring.cpp \
+		../../QXlsx/source/xlsxsharedstrings.cpp \
+		../../QXlsx/source/xlsxsimpleooxmlfile.cpp \
+		../../QXlsx/source/xlsxstyles.cpp \
+		../../QXlsx/source/xlsxtheme.cpp \
+		../../QXlsx/source/xlsxutility.cpp \
+		../../QXlsx/source/xlsxworkbook.cpp \
+		../../QXlsx/source/xlsxworksheet.cpp \
+		../../QXlsx/source/xlsxzipreader.cpp \
+		../../QXlsx/source/xlsxzipwriter.cpp \
+		../../QXlsx/source/xlsxreadsax.cpp \
+		../../cliente.cpp \
 		../../compra.cpp \
 		../../main.cpp \
 		../../mainwindow.cpp \
@@ -574,6 +727,7 @@ Makefile: ../../ProyectoFinal.pro /Users/franciscomurillo/Qt/6.11.2/macos/mkspec
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/toolchain.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_pre.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_pre.prf \
+		../../QXlsx/QXlsx.pri \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/resolve_config.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_post.prf \
 		/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_post.prf \
@@ -828,6 +982,7 @@ Makefile: ../../ProyectoFinal.pro /Users/franciscomurillo/Qt/6.11.2/macos/mkspec
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/toolchain.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_pre.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_pre.prf:
+../../QXlsx/QXlsx.pri:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/resolve_config.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/default_post.prf:
 /Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/features/mac/default_post.prf:
@@ -879,8 +1034,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../cliente.h ../../compra.h ../../mainwindow.h ../../producto.h ../../registro.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../cliente.cpp ../../compra.cpp ../../main.cpp ../../mainwindow.cpp ../../producto.cpp ../../registro.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../QXlsx/header/xlsxabstractooxmlfile.h ../../QXlsx/header/xlsxabstractooxmlfile_p.h ../../QXlsx/header/xlsxabstractsheet.h ../../QXlsx/header/xlsxabstractsheet_p.h ../../QXlsx/header/xlsxcell.h ../../QXlsx/header/xlsxcellformula.h ../../QXlsx/header/xlsxcellformula_p.h ../../QXlsx/header/xlsxcelllocation.h ../../QXlsx/header/xlsxcellrange.h ../../QXlsx/header/xlsxcellreference.h ../../QXlsx/header/xlsxcell_p.h ../../QXlsx/header/xlsxchart.h ../../QXlsx/header/xlsxchartsheet.h ../../QXlsx/header/xlsxchartsheet_p.h ../../QXlsx/header/xlsxchart_p.h ../../QXlsx/header/xlsxcolor_p.h ../../QXlsx/header/xlsxconditionalformatting.h ../../QXlsx/header/xlsxconditionalformatting_p.h ../../QXlsx/header/xlsxcontenttypes_p.h ../../QXlsx/header/xlsxdatavalidation.h ../../QXlsx/header/xlsxdatavalidation_p.h ../../QXlsx/header/xlsxdatetype.h ../../QXlsx/header/xlsxdocpropsapp_p.h ../../QXlsx/header/xlsxdocpropscore_p.h ../../QXlsx/header/xlsxdocument.h ../../QXlsx/header/xlsxdocument_p.h ../../QXlsx/header/xlsxdrawinganchor_p.h ../../QXlsx/header/xlsxdrawing_p.h ../../QXlsx/header/xlsxformat.h ../../QXlsx/header/xlsxformat_p.h ../../QXlsx/header/xlsxglobal.h ../../QXlsx/header/xlsxmediafile_p.h ../../QXlsx/header/xlsxnumformatparser_p.h ../../QXlsx/header/xlsxrelationships_p.h ../../QXlsx/header/xlsxrichstring.h ../../QXlsx/header/xlsxrichstring_p.h ../../QXlsx/header/xlsxsharedstrings_p.h ../../QXlsx/header/xlsxsimpleooxmlfile_p.h ../../QXlsx/header/xlsxstyles_p.h ../../QXlsx/header/xlsxtheme_p.h ../../QXlsx/header/xlsxutility_p.h ../../QXlsx/header/xlsxworkbook.h ../../QXlsx/header/xlsxworkbook_p.h ../../QXlsx/header/xlsxworksheet.h ../../QXlsx/header/xlsxworksheet_p.h ../../QXlsx/header/xlsxzipreader_p.h ../../QXlsx/header/xlsxzipwriter_p.h ../../QXlsx/header/xlsxreadsax.h ../../cliente.h ../../compra.h ../../mainwindow.h ../../producto.h ../../registro.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../QXlsx/source/xlsxabstractooxmlfile.cpp ../../QXlsx/source/xlsxabstractsheet.cpp ../../QXlsx/source/xlsxcell.cpp ../../QXlsx/source/xlsxcellformula.cpp ../../QXlsx/source/xlsxcelllocation.cpp ../../QXlsx/source/xlsxcellrange.cpp ../../QXlsx/source/xlsxcellreference.cpp ../../QXlsx/source/xlsxchart.cpp ../../QXlsx/source/xlsxchartsheet.cpp ../../QXlsx/source/xlsxcolor.cpp ../../QXlsx/source/xlsxconditionalformatting.cpp ../../QXlsx/source/xlsxcontenttypes.cpp ../../QXlsx/source/xlsxdatavalidation.cpp ../../QXlsx/source/xlsxdatetype.cpp ../../QXlsx/source/xlsxdocpropsapp.cpp ../../QXlsx/source/xlsxdocpropscore.cpp ../../QXlsx/source/xlsxdocument.cpp ../../QXlsx/source/xlsxdrawing.cpp ../../QXlsx/source/xlsxdrawinganchor.cpp ../../QXlsx/source/xlsxformat.cpp ../../QXlsx/source/xlsxmediafile.cpp ../../QXlsx/source/xlsxnumformatparser.cpp ../../QXlsx/source/xlsxrelationships.cpp ../../QXlsx/source/xlsxrichstring.cpp ../../QXlsx/source/xlsxsharedstrings.cpp ../../QXlsx/source/xlsxsimpleooxmlfile.cpp ../../QXlsx/source/xlsxstyles.cpp ../../QXlsx/source/xlsxtheme.cpp ../../QXlsx/source/xlsxutility.cpp ../../QXlsx/source/xlsxworkbook.cpp ../../QXlsx/source/xlsxworksheet.cpp ../../QXlsx/source/xlsxzipreader.cpp ../../QXlsx/source/xlsxzipwriter.cpp ../../QXlsx/source/xlsxreadsax.cpp ../../cliente.cpp ../../compra.cpp ../../main.cpp ../../mainwindow.cpp ../../producto.cpp ../../registro.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -910,9 +1065,43 @@ benchmark: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp
+compiler_moc_header_make_all: moc_xlsxdocument.cpp moc_mainwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp
+	-$(DEL_FILE) moc_xlsxdocument.cpp moc_mainwindow.cpp
+moc_xlsxdocument.cpp: ../../QXlsx/header/xlsxdocument.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxcell.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxreadsax.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc
+	/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=201402L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=21 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/Headers/header -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header/unix-gcc -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header/mac -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2/QtGui -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/franciscomurillo/Qt/6.11.2/macos/lib ../../QXlsx/header/xlsxdocument.h -o moc_xlsxdocument.cpp
+
 moc_mainwindow.cpp: ../../mainwindow.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
@@ -921,7 +1110,7 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		../../producto.h \
 		../../compra.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc
-	/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=201402L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=21 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/franciscomurillo/Qt/6.11.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
+	/Users/franciscomurillo/Qt/6.11.2/macos/libexec/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -D__cplusplus=201402L -D__APPLE_CC__=6000 -D__clang__ -D__clang_major__=21 -D__clang_minor__=0 -D__clang_patchlevel__=0 -D__GNUC__=4 -D__GNUC_MINOR__=2 -D__GNUC_PATCHLEVEL__=1 -I/Users/franciscomurillo/Qt/6.11.2/macos/mkspecs/macx-clang -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/Headers/header -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header/unix-gcc -I/Users/franciscomurillo/Documents/ceutec/programacion3/semana10/S10-Proyecto/QXlsx/header/mac -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Versions/A/Headers/6.11.2/QtGui -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2 -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore -I/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/21/include -I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.5.sdk/usr/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -F/Users/franciscomurillo/Qt/6.11.2/macos/lib ../../mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -945,6 +1134,934 @@ compiler_lex_clean:
 compiler_clean: compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
+
+xlsxabstractooxmlfile.o: ../../QXlsx/source/xlsxabstractooxmlfile.cpp ../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxabstractooxmlfile.o ../../QXlsx/source/xlsxabstractooxmlfile.cpp
+
+xlsxabstractsheet.o: ../../QXlsx/source/xlsxabstractsheet.cpp ../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxworkbook.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxabstractsheet.o ../../QXlsx/source/xlsxabstractsheet.cpp
+
+xlsxcell.o: ../../QXlsx/source/xlsxcell.cpp ../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcell_p.h \
+		../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxrichstring.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		../../QXlsx/header/xlsxformat_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcell.o ../../QXlsx/source/xlsxcell.cpp
+
+xlsxcellformula.o: ../../QXlsx/source/xlsxcellformula.cpp ../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		../../QXlsx/header/xlsxcellformula_p.h \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcellformula.o ../../QXlsx/source/xlsxcellformula.cpp
+
+xlsxcelllocation.o: ../../QXlsx/source/xlsxcelllocation.cpp ../../QXlsx/header/xlsxcelllocation.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcelllocation.o ../../QXlsx/source/xlsxcelllocation.cpp
+
+xlsxcellrange.o: ../../QXlsx/source/xlsxcellrange.cpp ../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcellrange.o ../../QXlsx/source/xlsxcellrange.cpp
+
+xlsxcellreference.o: ../../QXlsx/source/xlsxcellreference.cpp ../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxworksheet_p.h \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxconditionalformatting.h \
+		../../QXlsx/header/xlsxcellrange.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxdatavalidation.h \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QRegularExpression
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcellreference.o ../../QXlsx/source/xlsxcellreference.cpp
+
+xlsxchart.o: ../../QXlsx/source/xlsxchart.cpp ../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxchart_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxchart.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxchart.o ../../QXlsx/source/xlsxchart.cpp
+
+xlsxchartsheet.o: ../../QXlsx/source/xlsxchartsheet.cpp ../../QXlsx/header/xlsxchartsheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxchart.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxchartsheet_p.h \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxdrawinganchor_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSize \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxworkbook.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxchartsheet.o ../../QXlsx/source/xlsxchartsheet.cpp
+
+xlsxcolor.o: ../../QXlsx/source/xlsxcolor.cpp ../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxstyles_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDataStream \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcolor.o ../../QXlsx/source/xlsxcolor.cpp
+
+xlsxconditionalformatting.o: ../../QXlsx/source/xlsxconditionalformatting.cpp ../../QXlsx/header/xlsxconditionalformatting.h \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxconditionalformatting_p.h \
+		../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxstyles_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxcell.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxconditionalformatting.o ../../QXlsx/source/xlsxconditionalformatting.cpp
+
+xlsxcontenttypes.o: ../../QXlsx/source/xlsxcontenttypes.cpp ../../QXlsx/header/xlsxcontenttypes_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMapIterator \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxcontenttypes.o ../../QXlsx/source/xlsxcontenttypes.cpp
+
+xlsxdatavalidation.o: ../../QXlsx/source/xlsxdatavalidation.cpp ../../QXlsx/header/xlsxdatavalidation.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxdatavalidation_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdatavalidation.o ../../QXlsx/source/xlsxdatavalidation.cpp
+
+xlsxdatetype.o: ../../QXlsx/source/xlsxdatetype.cpp ../../QXlsx/header/xlsxdatetype.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdatetype.o ../../QXlsx/source/xlsxdatetype.cpp
+
+xlsxdocpropsapp.o: ../../QXlsx/source/xlsxdocpropsapp.cpp ../../QXlsx/header/xlsxdocpropsapp_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdocpropsapp.o ../../QXlsx/source/xlsxdocpropsapp.cpp
+
+xlsxdocpropscore.o: ../../QXlsx/source/xlsxdocpropscore.cpp ../../QXlsx/header/xlsxdocpropscore_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdocpropscore.o ../../QXlsx/source/xlsxdocpropscore.cpp
+
+xlsxdocument.o: ../../QXlsx/source/xlsxdocument.cpp ../../QXlsx/header/xlsxdocument.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxcell.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxreadsax.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		../../QXlsx/header/xlsxchart.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxcontenttypes_p.h \
+		../../QXlsx/header/xlsxdocpropsapp_p.h \
+		../../QXlsx/header/xlsxdocpropscore_p.h \
+		../../QXlsx/header/xlsxdocument_p.h \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		../../QXlsx/header/xlsxmediafile_p.h \
+		../../QXlsx/header/xlsxsharedstrings_p.h \
+		../../QXlsx/header/xlsxrichstring.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		../../QXlsx/header/xlsxstyles_p.h \
+		../../QXlsx/header/xlsxtheme_p.h \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		../../QXlsx/header/xlsxworkbook_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxsimpleooxmlfile_p.h \
+		../../QXlsx/header/xlsxzipreader_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QScopedPointer \
+		../../QXlsx/header/xlsxzipwriter_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTemporaryFile
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdocument.o ../../QXlsx/source/xlsxdocument.cpp
+
+xlsxdrawing.o: ../../QXlsx/source/xlsxdrawing.cpp ../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxdrawinganchor_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSize \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdrawing.o ../../QXlsx/source/xlsxdrawing.cpp
+
+xlsxdrawinganchor.o: ../../QXlsx/source/xlsxdrawinganchor.cpp ../../QXlsx/header/xlsxchart.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxdrawinganchor_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSize \
+		../../QXlsx/header/xlsxmediafile_p.h \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxdrawinganchor.o ../../QXlsx/source/xlsxdrawinganchor.cpp
+
+xlsxformat.o: ../../QXlsx/source/xlsxformat.cpp ../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxcolor_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxformat_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxnumformatparser_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDataStream \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxformat.o ../../QXlsx/source/xlsxformat.cpp
+
+xlsxmediafile.o: ../../QXlsx/source/xlsxmediafile.cpp ../../QXlsx/header/xlsxmediafile_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QCryptographicHash
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxmediafile.o ../../QXlsx/source/xlsxmediafile.cpp
+
+xlsxnumformatparser.o: ../../QXlsx/source/xlsxnumformatparser.cpp ../../QXlsx/header/xlsxnumformatparser_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxnumformatparser.o ../../QXlsx/source/xlsxnumformatparser.cpp
+
+xlsxrelationships.o: ../../QXlsx/source/xlsxrelationships.cpp ../../QXlsx/header/xlsxrelationships_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxrelationships.o ../../QXlsx/source/xlsxrelationships.cpp
+
+xlsxrichstring.o: ../../QXlsx/source/xlsxrichstring.cpp ../../QXlsx/header/xlsxrichstring.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		../../QXlsx/header/xlsxformat_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxrichstring_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QTextDocument \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QTextFragment
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxrichstring.o ../../QXlsx/source/xlsxrichstring.cpp
+
+xlsxsharedstrings.o: ../../QXlsx/source/xlsxsharedstrings.cpp ../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxformat_p.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxrichstring.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		../../QXlsx/header/xlsxsharedstrings_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxsharedstrings.o ../../QXlsx/source/xlsxsharedstrings.cpp
+
+xlsxsimpleooxmlfile.o: ../../QXlsx/source/xlsxsimpleooxmlfile.cpp ../../QXlsx/header/xlsxsimpleooxmlfile_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxsimpleooxmlfile.o ../../QXlsx/source/xlsxsimpleooxmlfile.cpp
+
+xlsxstyles.o: ../../QXlsx/source/xlsxstyles.cpp ../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxformat_p.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxstyles_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDataStream \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxstyles.o ../../QXlsx/source/xlsxstyles.cpp
+
+xlsxtheme.o: ../../QXlsx/source/xlsxtheme.cpp ../../QXlsx/header/xlsxtheme_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxtheme.o ../../QXlsx/source/xlsxtheme.cpp
+
+xlsxutility.o: ../../QXlsx/source/xlsxutility.cpp ../../QXlsx/header/xlsxcellreference.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QRegularExpression
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxutility.o ../../QXlsx/source/xlsxutility.cpp
+
+xlsxworkbook.o: ../../QXlsx/source/xlsxworkbook.cpp ../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxchart.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxchartsheet.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		../../QXlsx/header/xlsxformat_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxmediafile_p.h \
+		../../QXlsx/header/xlsxsharedstrings_p.h \
+		../../QXlsx/header/xlsxrichstring.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		../../QXlsx/header/xlsxstyles_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxutility_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxworkbook_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		../../QXlsx/header/xlsxsimpleooxmlfile_p.h \
+		../../QXlsx/header/xlsxtheme_p.h \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxworksheet_p.h \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxconditionalformatting.h \
+		../../QXlsx/header/xlsxdatavalidation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QRegularExpression \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QtDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxworkbook.o ../../QXlsx/source/xlsxworkbook.cpp
+
+xlsxworksheet.o: ../../QXlsx/source/xlsxworksheet.cpp ../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		../../QXlsx/header/xlsxcell.h \
+		../../QXlsx/header/xlsxformat.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxcell_p.h \
+		../../QXlsx/header/xlsxcellformula.h \
+		../../QXlsx/header/xlsxrichstring.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedDataPointer \
+		../../QXlsx/header/xlsxcellformula_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSharedData \
+		../../QXlsx/header/xlsxchart.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamWriter \
+		../../QXlsx/header/xlsxconditionalformatting_p.h \
+		../../QXlsx/header/xlsxcolor_p.h \
+		../../QXlsx/header/xlsxconditionalformatting.h \
+		../../QXlsx/header/xlsxdrawing_p.h \
+		../../QXlsx/header/xlsxrelationships_p.h \
+		../../QXlsx/header/xlsxdrawinganchor_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPoint \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSize \
+		../../QXlsx/header/xlsxformat_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QSet \
+		../../QXlsx/header/xlsxsharedstrings_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QHash \
+		../../QXlsx/header/xlsxstyles_p.h \
+		../../QXlsx/header/xlsxutility_p.h \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxworksheet_p.h \
+		../../QXlsx/header/xlsxabstractsheet_p.h \
+		../../QXlsx/header/xlsxabstractooxmlfile_p.h \
+		../../QXlsx/header/xlsxdatavalidation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QRegularExpression \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QBuffer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDir \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QFile \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMapIterator \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QTextDocument
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxworksheet.o ../../QXlsx/source/xlsxworksheet.cpp
+
+xlsxzipreader.o: ../../QXlsx/source/xlsxzipreader.cpp ../../QXlsx/header/xlsxzipreader_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QScopedPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qzipreader_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qglobal_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/qglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qtcoreglobal_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qconfig_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qtcore-config_p.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxzipreader.o ../../QXlsx/source/xlsxzipreader.cpp
+
+xlsxzipwriter.o: ../../QXlsx/source/xlsxzipwriter.cpp ../../QXlsx/header/xlsxzipwriter_p.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qzipwriter_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qglobal_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/qglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qtcoreglobal_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qconfig_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Versions/A/Headers/6.11.2/QtCore/private/qtcore-config_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDebug
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxzipwriter.o ../../QXlsx/source/xlsxzipwriter.cpp
+
+xlsxreadsax.o: ../../QXlsx/source/xlsxreadsax.cpp ../../QXlsx/header/xlsxdocument.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxcell.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxreadsax.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader \
+		../../QXlsx/header/xlsxworkbook.h \
+		../../QXlsx/header/xlsxzipreader_p.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QScopedPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QtCore
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o xlsxreadsax.o ../../QXlsx/source/xlsxreadsax.cpp
 
 cliente.o: ../../cliente.cpp ../../cliente.h \
 		../../registro.h \
@@ -977,7 +2094,37 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../compra.h \
 		ui_mainwindow.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTextStream \
-		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMessageBox
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtWidgets.framework/Headers/QMessageBox \
+		../../QXlsx/header/xlsxdocument.h \
+		../../QXlsx/header/xlsxformat.h \
+		../../QXlsx/header/xlsxglobal.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QByteArray \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QIODevice \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QStringList \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVariant \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QColor \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QExplicitlySharedDataPointer \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QFont \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QList \
+		../../QXlsx/header/xlsxworksheet.h \
+		../../QXlsx/header/xlsxabstractsheet.h \
+		../../QXlsx/header/xlsxabstractooxmlfile.h \
+		../../QXlsx/header/xlsxcell.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDate \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QDateTime \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QTime \
+		../../QXlsx/header/xlsxcelllocation.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMetaType \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QVector \
+		../../QXlsx/header/xlsxcellrange.h \
+		../../QXlsx/header/xlsxcellreference.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtGui.framework/Headers/QImage \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QMap \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QPointF \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QUrl \
+		../../QXlsx/header/xlsxreadsax.h \
+		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QXmlStreamReader
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 producto.o: ../../producto.cpp ../../producto.h \
@@ -989,6 +2136,9 @@ producto.o: ../../producto.cpp ../../producto.h \
 registro.o: ../../registro.cpp ../../registro.h \
 		/Users/franciscomurillo/Qt/6.11.2/macos/lib/QtCore.framework/Headers/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o registro.o ../../registro.cpp
+
+moc_xlsxdocument.o: moc_xlsxdocument.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_xlsxdocument.o moc_xlsxdocument.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

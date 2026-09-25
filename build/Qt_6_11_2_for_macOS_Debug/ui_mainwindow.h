@@ -95,13 +95,14 @@ public:
     QVBoxLayout *verticalLayout_8;
     QPushButton *btnModificarCliente;
     QPushButton *btnBuscarCliente;
+    QPushButton *btnDescargarRegistros;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(563, 752);
+        MainWindow->resize(561, 729);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgba(250,250,250,0.9);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -135,7 +136,7 @@ public:
 "background-color:transparent;"));
         txtListas = new QTextBrowser(centralwidget);
         txtListas->setObjectName("txtListas");
-        txtListas->setGeometry(QRect(50, 500, 451, 201));
+        txtListas->setGeometry(QRect(50, 480, 451, 171));
         txtListas->setStyleSheet(QString::fromUtf8("background-color:white;\n"
 "color:black;"));
         grpProductos = new QGroupBox(centralwidget);
@@ -244,11 +245,12 @@ public:
 
         layoutWidget3 = new QWidget(centralwidget);
         layoutWidget3->setObjectName("layoutWidget3");
-        layoutWidget3->setGeometry(QRect(50, 430, 451, 51));
+        layoutWidget3->setGeometry(QRect(50, 430, 451, 41));
         horizontalLayout = new QHBoxLayout(layoutWidget3);
         horizontalLayout->setObjectName("horizontalLayout");
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
         inputTipoListado = new QComboBox(layoutWidget3);
+        inputTipoListado->addItem(QString());
         inputTipoListado->addItem(QString());
         inputTipoListado->addItem(QString());
         inputTipoListado->addItem(QString());
@@ -480,6 +482,12 @@ public:
 
         verticalLayout_8->addWidget(btnBuscarCliente);
 
+        btnDescargarRegistros = new QPushButton(centralwidget);
+        btnDescargarRegistros->setObjectName("btnDescargarRegistros");
+        btnDescargarRegistros->setGeometry(QRect(200, 660, 151, 41));
+        btnDescargarRegistros->setStyleSheet(QString::fromUtf8("background-color:rgb(230, 230, 230);\n"
+"color:black;\n"
+"border: 1px gray solid;"));
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -511,6 +519,7 @@ public:
         inputTipoListado->setItemText(0, QCoreApplication::translate("MainWindow", "Clientes", nullptr));
         inputTipoListado->setItemText(1, QCoreApplication::translate("MainWindow", "Productos", nullptr));
         inputTipoListado->setItemText(2, QCoreApplication::translate("MainWindow", "Ultimas Compras", nullptr));
+        inputTipoListado->setItemText(3, QCoreApplication::translate("MainWindow", "Prod Existentes", nullptr));
 
         buttonMostrarListado->setText(QCoreApplication::translate("MainWindow", "Ver Listado", nullptr));
         grpCompras->setTitle(QCoreApplication::translate("MainWindow", "Compras", nullptr));
@@ -531,6 +540,7 @@ public:
         btnAgregarCliente->setText(QCoreApplication::translate("MainWindow", "Agregar", nullptr));
         btnModificarCliente->setText(QCoreApplication::translate("MainWindow", "Modificar", nullptr));
         btnBuscarCliente->setText(QCoreApplication::translate("MainWindow", "Buscar", nullptr));
+        btnDescargarRegistros->setText(QCoreApplication::translate("MainWindow", "Descargar Registros", nullptr));
     } // retranslateUi
 
 };

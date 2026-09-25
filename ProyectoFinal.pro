@@ -8,6 +8,12 @@ CONFIG += c++17
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+# 1. Indicarle a qmake dónde buscar los archivos de cabecera (.h) de QXlsx
+INCLUDEPATH += $$PWD/QXlsx/Headers/header
+
+# 2. Incluir el archivo de configuración interno de la biblioteca
+include($$PWD/QXlsx/QXlsx.pri)
+
 SOURCES += \
     cliente.cpp \
     compra.cpp \
@@ -30,3 +36,5 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+

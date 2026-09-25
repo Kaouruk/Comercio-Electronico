@@ -48,6 +48,8 @@ private slots:
     void on_btnBuscarCompra_clicked();
     void on_btnModificarCompra_clicked();
 
+    void on_btnDescargarRegistros_clicked();
+
 private:
 
     Ui::MainWindow *ui;
